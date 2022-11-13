@@ -15,7 +15,7 @@ Parameters:
   FileSystemName:
     Type: String
     Description: Name for tagging the EFS FileSystem (Default - CloudFormationStackNameFileSystem)
-    Default: " "
+    Default: "FileSystem "
 
   PerformanceMode:
     Type: String
@@ -50,27 +50,27 @@ Parameters:
   # Key alias ARN - An ARN for a key alias, for example, arn:aws:kms:us-west-2:444455556666:alias/projectKey1.
     Type: String
     Description: Would you like to use a non-default KMS key?  (Provide key id, ARN, or alias)
-    Default: "None"
+    Default: "arn:aws:kms:us-east-2:120446144941:key/37354adf-b3e3-4ddb-901d-ae5b8af90d33"
 
   # Mount Target Parameters
   VpcId:
-    Type: AWS::EC2::VPC::Id
+    Type: AWS::EC2::VPC::vpc-065ec115a11ac60e9
     Description: Which VPC would you like to use?
 
   MountTarget1Subnet:
-    Type: AWS::EC2::Subnet::Id
+    Type: AWS::EC2::Subnet::subnet-0fe4b2bca005d6534
     Description: Which subnet would you like to use for your first Mount Target?
 
   MountTarget2Subnet:
     Type: String
     Description: Which subnet would you like to use for your second Mount Target? (enter a valid subnet id)
-    Default: "subnet-0000000000000000"
+    Default: subnet-0035fb1b12a6f308a
     AllowedPattern: ^subnet-[a-z0-9]{8,18}$
 
   MountTarget3Subnet:
     Type: String
     Description: Which subnet would you like to use for your third Mount Target? (enter a valid subnet id)
-    Default: "subnet-0000000000000000"
+    Default: none
     AllowedPattern: ^subnet-[a-z0-9]{8,18}$
 
   FileSharePort: 
@@ -81,37 +81,16 @@ Parameters:
     MaxValue: 65535
 
   OriginSecurityGroup:
-    Type: AWS::EC2::SecurityGroup::Id
+    Type: AWS::EC2::SecurityGroup::sg-0b9222ed6d755f8cc
     Description: Which SecurityGroup will be allowed to access Mount Targets for the FileSystem
 
 
 Metadata:
 
   Authors:
-    Description:  Will Nave (will@1strategy.com)
+    Description:  CSBB
 
-  Purpose:
-    Description: "This template is used to create a stack that implements a minimum of one EFS FileSystem, 
-                  a single Mount Target, and a VPC Security Group associated with Mount targets.  In its 
-                  current state the template is capable of provisioning up to three Mount Targets associated
-                  with the EFS FileSystem.
-                  
-                  All Origin Security Groups designated for access to the Mount Target Security Group 
-                  must exist in a subnet within the same VPC as the Mount Target(s), and/or be routable
-                  from within the VPC associated with the Mount Target Security Group."
-
-  License:
-    Description: 'Copyright 2019 1Strategy
-                  Licensed under the Apache License, Version 2.0 (the "License");
-                  you may not use this file except in compliance with the License.
-                  You may obtain a copy of the License at
-                      http://www.apache.org/licenses/LICENSE-2.0
-                  Unless required by applicable law or agreed to in writing, software
-                  distributed under the License is distributed on an "AS IS" BASIS,
-                  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-                  See the License for the specific language governing permissions and
-                  limitations under the License.'
-
+  
   AWS::CloudFormation::Interface:
     ParameterGroups:
       -
