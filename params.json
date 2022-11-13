@@ -1,0 +1,13 @@
+[
+    "Encryption=true",
+    "FileSystemName=JohnDoeTestFS",
+    "PerformanceMode=generalPurpose",
+    "ThroughputMode=bursting",
+    "KmsKeyId=None",
+    "VpcId=vpc-0011223344556677"
+    "MountTarget1Subnet=subnet-00a1122334455b678",
+    "MountTarget2Subnet=None",
+    "MountTarget3Subnet=None",
+    "FileSharePort=2049",
+    "OriginSecurityGroup=sg-0011223344556677"
+]
