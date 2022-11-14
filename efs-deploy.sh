@@ -1,5 +1,5 @@
 aws cloudformation deploy \
-    --template-file efs.yml \
+    --template-file efs_first.yaml \
     --stack-name AiDemoTestEFS \
     --tags file://tags.json \
     --region "us-east-2" \
